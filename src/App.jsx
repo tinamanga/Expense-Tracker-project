@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { initialExpenses } from "./data/dummyData";
 import ExpenseTable from "./components/ExpenseTable";
 
 function App() {
