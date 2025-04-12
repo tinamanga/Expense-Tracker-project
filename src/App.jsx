@@ -1,6 +1,8 @@
 
 import { useState } from "react";
+import { initialExpenses } from "./data/dummyData";
 import ExpenseTable from "./components/ExpenseTable";
+import ExpenseForm from "./components/ExpenseForm";
 
 function App() {
 
@@ -8,7 +10,9 @@ function App() {
     return (
       <div className="App">
         <h1>Expense Tracker 💰</h1>
-        <ExpenseTable expenses={expenses} />
+        <ExpenseTable expenses={filteredExpenses} />
+        <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+        <ExpenseForm onAddExpense={(e) => setExpenses([...expenses, e])} />
       </div>
     );
   }

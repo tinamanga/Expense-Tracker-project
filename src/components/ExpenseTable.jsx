@@ -1,3 +1,4 @@
+
 function ExpenseTable({ expenses }) {
   return (
     <table>
