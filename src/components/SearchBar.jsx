@@ -1,5 +1,7 @@
 function SearchBar({ searchTerm, onSearch }) {
     return (
+      <div className="search-container">
+      <span className="search-icon">🔍</span>
       <input
         className="search-bar"
         type="text"
@@ -7,6 +9,7 @@ function SearchBar({ searchTerm, onSearch }) {
         value={searchTerm}
         onChange={(e) => onSearch(e.target.value)}
       />
+       </div>
     );
   }
   

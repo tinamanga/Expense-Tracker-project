@@ -1,27 +1,29 @@
-function ExpenseTable({ expenses, onDelete, onSort }) {
+function ExpenseTable({ expenses }) {
   return (
     <table>
       <thead>
         <tr>
           <th>
-            <button onClick={() => onSort("description")}>Description ⬍</button>
+            <button >Expense⬍</button>
           </th>
-          <th>Amount</th>
           <th>
-            <button onClick={() => onSort("category")}>Category ⬍</button>
+            <button >Description ⬍</button>
           </th>
-          <th>Action</th>
+          <th>
+          <button>Amount ⬍</button>
+          </th>
+          <th>
+            <button>Category ⬍</button>
+          </th>
         </tr>
       </thead>
       <tbody>
         {expenses.map((expense) => (
           <tr key={expense.id}>
+            <td>{expense.expenseName}</td>
             <td>{expense.description}</td>
-            <td>${expense.amount.toFixed(2)}</td>
+            <td>${expense.amount}</td>
             <td>{expense.category}</td>
-            <td>
-              <button onClick={() => onDelete(expense.id)}>🗑️ Delete</button>
-            </td>
           </tr>
         ))}
       </tbody>
