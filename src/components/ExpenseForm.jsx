@@ -1,52 +1,56 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 
 function ExpenseForm({ onAddExpense }) {
-  const [form, setForm] = useState({
-    description: "",
-    amount: "",
-    category: ""
-  });
+  const [description, setDescription] = useState('');
+  const [amount, setAmount] = useState('');
+  const [category, setCategory] = useState('');
+  const [date, setDate] = useState('');
 
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newExpense = {
-      id: Date.now(),
-      ...form,
-      amount: parseFloat(form.amount)
-    };
-    onAddExpense(newExpense);
-    setForm({ description: "", amount: "", category: "" });
-  }
+    if (description && amount && category && date) {
+      onAddExpense({ description, amount, category, date });
+      setDescription('');
+      setAmount('');
+      setCategory('');
+      setDate('');
+    } else {
+      alert('Please fill out all fields');
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="expense-form">
       <input
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={handleChange}
-        required
+        type="text"
+        placeholder="Expense Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        className="form-input"
       />
       <input
-        name="amount"
         type="number"
         placeholder="Amount"
-        value={form.amount}
-        onChange={handleChange}
-        required
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        className="form-input"
       />
       <input
-        name="category"
+        type="text"
         placeholder="Category"
-        value={form.category}
-        onChange={handleChange}
-        required
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="form-input"
       />
-      <button type="submit">Add Expense</button>
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        className="form-input"
+      />
+      <button type="submit" className="submit-button">Submit</button>
+      
+
     </form>
   );
 }
