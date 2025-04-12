@@ -17,6 +17,20 @@ const filteredExpenses=expenses.filter((expense)=>{
 return expense.expenseName.toLowerCase().includes(searchTerm.toLowerCase()) ||  expense.description.toLowerCase().includes(searchTerm.toLowerCase());
 });
 
+//advanced deliverables
+//sorting by category
+const sortBy=(columnName)=>{
+const sortedData=[...expenses].sort((a,b)=>{
+    return a[columnName].toLowerCase().localeCompare(b[columnName].toLowerCase());//sorted alphabetically 
+})
+setExpenses(sortedData); 
+}
+
+const handleDelete=(indexToDelete)=>{
+    const updatedData=expenses.filter((_,index)=>index!==indexToDelete);
+    setExpenses(updatedData);
+    
+}
   return (
     <div className="App">
       <h1>Expense Tracker 💸</h1>
@@ -32,6 +46,8 @@ return expense.expenseName.toLowerCase().includes(searchTerm.toLowerCase()) ||  
         <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} /><br /><br />
           <ExpenseTable
             expenses={filteredExpenses}
+            onSort={sortBy}
+            onDelete={handleDelete}
           />
         </div>
       </div>
