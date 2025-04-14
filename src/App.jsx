@@ -11,7 +11,6 @@ function App() {
     setExpenses([...expenses, newExpense]);
   };
 
-  //The search function(predictate function)
   const filteredExpenses = expenses.filter((expense) => {
     return (
       expense.expenseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -19,13 +18,11 @@ function App() {
     );
   });
 
-  //advanced deliverables
-  //sorting by category
   const sortBy = (columnName) => {
     const sortedData = [...expenses].sort((a, b) => {
       return a[columnName]
         .toLowerCase()
-        .localeCompare(b[columnName].toLowerCase()); //sorted alphabetically
+        .localeCompare(b[columnName].toLowerCase()); // sorted alphabetically
     });
     setExpenses(sortedData);
   };
@@ -34,33 +31,32 @@ function App() {
     const updatedData = expenses.filter((_, index) => index !== indexToDelete);
     setExpenses(updatedData);
   };
+
   return (
-    <>
-      <div className="App">
-        <h1>Expense Tracker</h1>
-        <p>
-          Start taking control of your finances and life,Record,Categorize and
-          analyze your spending.
-        </p>
-        <div className="main-layout">
+    <div className="App">
+      <h1>Expense Tracker</h1>
+      <p>
+        Start taking control of your finances and life. Record, categorize, and
+        analyze your spending.
+      </p>
+      <div className="main-layout">
+        <br />
+        <div className="left-column"></div>
+        <div className="middle-column">
+          <ExpenseForm onAddExpense={handleAddExpense} />
+        </div>
+        <div className="right-column">
+          <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
           <br />
-          <div className="left-column"></div>
-          <div className="middle-column">
-            <ExpenseForm onAddExpense={handleAddExpense} />
-          </div>
-          <div className="right-column">
-            <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
-            <br />
-            <br />
-            <ExpenseTable
-              expenses={filteredExpenses}
-              onSort={sortBy}
-              onDelete={handleDelete}
-            />
-          </div>
+          <br />
+          <ExpenseTable
+            expenses={filteredExpenses}
+            onSort={sortBy}
+            onDelete={handleDelete}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
