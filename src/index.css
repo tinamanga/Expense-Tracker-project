@@ -1,61 +1,54 @@
+
 body {
   font-family: Arial, sans-serif;
-  background: #f5f7fa;
+  background: #000;
   margin: 0;
-  padding: 0;
-  padding-left: 10px;
+  padding: 0 0 0 10px;
 }
 
 .App {
-  max-width: 1200px;
-  max-height: fit-content;
-  margin: 2rem auto;
+  max-width: 100%;
+  margin: 1rem auto;
   padding: 2rem;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h1{
-  color:black;
-  text-align: center;
-}
 
-
-
-h3,p{
-  text-align: center;
-  margin-bottom: 2rem;
-  color: white;
-}
-
-h2{
-
-}
 h1 {
-font-weight:600px ;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 8%;
 }
 
+ p {
+  text-align: left;
+  margin-bottom: 2rem;
+  color:black;
+  padding-left: 8%;
+}
+
+h2 {
+  color: black;
+}
+
+/* Layout */
 .main-layout {
   display: flex;
   gap: 4rem;
   align-items: flex-start;
-
 }
 
-/* middle: Expense Form */
-.left-panel {
-  flex: 1;
-  background: #f0f4f8;
-  padding: 1.5rem;
-  border-radius: 8px;
-}
+.left-panel,
 .middle-panel {
   flex: 1;
   background: #f0f4f8;
   padding: 1.5rem;
   border-radius: 8px;
 }
-/*card form*/
+
+/* Card Form */
 .card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -64,25 +57,27 @@ font-weight:600px ;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-   
+  max-height: 100%;
+  flex-direction: column;
 }
 
-
-/* right: Search + Table */
+/* Right Panel */
 .right-panel {
   flex: 3;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
+/* Search Input */
 .search-container {
   position: relative;
   width: 50%;
 }
 
 .search-icon {
-  position:absolute;
-  left: 0px;
+  position: absolute;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1rem;
@@ -93,18 +88,20 @@ font-weight:600px ;
   width: 100%;
   padding: 0.6rem 0.6rem 0.6rem 2rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
+  margin-bottom: none;
 }
-
 
 /* Form Styling */
-.expense-form{
-padding-left: 0px;
-justify-content: center;
-align-items: center;
+.expense-form {
+  padding-left: 0;
+  justify-content: center;
+  align-items: center;
 }
+
 form input,
-form button {
+form button,
+form select {
   width: 100%;
   padding: 0.6rem;
   margin-bottom: 0.8rem;
@@ -112,79 +109,57 @@ form button {
   border: 1px solid #ccc;
   font-size: 1rem;
 }
-/*to make sure form has viscible borders*/
+
 .form-input {
   width: 100%;
   padding: 5px;
-  margin:1 rem;
+  margin: 1rem 0;
   font-size: 1rem;
-  border: 2px solid #ccc; /* visible border */
+  border: 2px solid #ccc;
   border-radius: 4px;
   outline: none;
 }
-form button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+
 .form-input::placeholder {
-  color: #837e83; /* light gray placeholder */
+  color: #837e83;
   font-style: italic;
 }
 
 .form-input:focus {
-  border-color: #3498db; /* blue border when focused */
+  border-color: #3498db;
+}
+
+form button {
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 form button:hover {
   background-color: #2980b9;
 }
 
-/* Search Input */
-.right-panel input[type="text"] {
-  padding: 0.6rem;
-  font-size: 3rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  text-align: left;
-  
-}
-
-.search-bar{
-  border-radius: 6px;
-  padding: 8px;
-
-}
-
-/* Table Styling */
+/* Expense Table */
 table {
   width: 100%;
   border-collapse: collapse;
   background: white;
   border-radius: 6px;
-  margin-top: 1rem;
-
-}
-
-/* Alternate row colors */
-tbody tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-
-tbody tr:nth-child(even) {
-  background-color:rgb(229, 228, 226);
-}
-
-th, td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+  margin-top: 0.5rem;
+  
 }
 
 thead {
-  background: #f4f6f9;
+  background-color:black;
+}
+
+thead th {
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
 }
 
 th button {
@@ -192,5 +167,22 @@ th button {
   border: none;
   font-weight: bold;
   cursor: pointer;
+  color: #fff;   
+}
+
+tbody td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  color: #333;
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(229, 228, 226);
 }
 

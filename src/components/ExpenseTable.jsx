@@ -7,7 +7,7 @@ function ExpenseTable({ expenses,onSort,onDelete}) {
             <button >Expense</button>
           </th>
           <th>
-            <button onClick={()=>onSort("description")} >Description ⬍</button>
+            <button onClick={()=>onSort("description")} >Description ⬍</button> 
           </th>
           <th>
           <button>Amount </button>
