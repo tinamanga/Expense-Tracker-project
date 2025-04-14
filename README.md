@@ -1,4 +1,4 @@
-# 💸 Expense Tracker
+# Expense Tracker
 This project is a fully functional **Expense Tracker** built with **React** as part of the **SA.01 Week 1 Code Challenge** (Phase 2). It showcases core React skills such as:
 
 - Components and props
@@ -19,23 +19,31 @@ A simple React application that allows users to:
 - ✅ Delete individual expenses  
 
 
+## Project Structure
+
 ## 📁 Project Structure
 
-expense-tracker/ 
-├── public/ 
-├── src/ │ 
-├── components/ │ 
-│ ├── ExpenseTable.jsx // Displays the table of expenses │ 
-│ ├── ExpenseForm.jsx // Form to add new expenses │ 
-│ ├── SearchBar.jsx // Input to filter expenses │ 
-├── App.jsx // Main component managing state and rendering │ 
-├── index.jsx // Entry point 
-├── README.md 
-├── package.json 
-└── vite.config.js / config files
+```bash
+expense-tracker/
+│
+├── public/                      # Static files served directly
+│
+├── src/                         # Main source code folder
+│   ├── components/              # Reusable UI components
+│   │   ├── ExpenseTable.jsx     # Displays the table of expenses
+│   │   ├── ExpenseForm.jsx      # Form to add new expenses
+│   │   └── SearchBar.jsx        # Input field to filter expenses
+│   ├── App.jsx                  # Main app component (manages state)
+│   └── index.jsx                # Entry point, renders App to the DOM
+│
+├── package.json                 # Project metadata and dependencies
+├── vite.config.js               # Vite configuration
+├── README.md                    # Project documentation (you’re here)
+└── .gitignore                   # Files/folders Git should ignore
+
 ---
 
-## 🚀 Features
+## Features
 
 | Feature                       | Status | Description |
 |------------------------------|--------|-------------|
