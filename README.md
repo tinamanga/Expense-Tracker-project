@@ -70,7 +70,7 @@ npm run dev
   -http://localhost:5173
 
    ## Deployment link:
-
+   -https://tinamanga.github.io/Expense-Tracker-project/
 
 ##License
   -This project is open source and available under the MIT License.
