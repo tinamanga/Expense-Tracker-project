@@ -21,8 +21,6 @@ A simple React application that allows users to:
 
 ## Project Structure
 
-## 📁 Project Structure
-
 ```bash
 expense-tracker/
 │
